@@ -1,7 +1,7 @@
 package com.practice;
 
 import java.util.Scanner;
-//dup
+
 public class DuplicatePrinter {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
