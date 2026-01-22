@@ -1,6 +1,10 @@
 package com.practice;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Scanner;
+import java.util.Map;
+
 
 public class Exercises {
     public int factorial(int n) {
@@ -63,4 +67,33 @@ public class Exercises {
         }
         return total;
     }
+    public Map<Integer, Integer> duplicatesOnly() {
+
+        Scanner scanner = new Scanner(System.in);
+        Map<Integer, Integer> countMap = new HashMap<>();
+
+        // Read n
+        System.out.print("Enter number of elements: ");
+        int n = scanner.nextInt();
+
+        // Read n integer values
+        System.out.println("Enter " + n + " integer values:");
+        for (int i = 0; i < n; i++) {
+            int num = scanner.nextInt();
+            countMap.put(num, countMap.getOrDefault(num, 0) + 1);
+        }
+
+        // Store only duplicates
+        Map<Integer, Integer> duplicates = new HashMap<>();
+        for (Map.Entry<Integer, Integer> entry : countMap.entrySet()) {
+            if (entry.getValue() > 1) {
+                duplicates.put(entry.getKey(), entry.getValue());
+            }
+        }
+
+
+        return duplicates;
+        //return Map.of(1, 1);
+    }
+
 }
